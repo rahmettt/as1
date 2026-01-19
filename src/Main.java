@@ -49,6 +49,16 @@ public class Main {
         System.out.println(bus.equals(new Transport("Bus", 40))
                 ? "Objects are equal"
                 : "Objects are different");
+        TransportDAO dao = new TransportDAO();
+
+        dao.addTransport(new Transport("Bus", 40));
+        dao.addTransport(new Transport("Taxi", 4));
+
+        System.out.println("\n--- From Database ---");
+        dao.getAllTransports();
+
+        dao.updateCapacity(1, 50);
+        dao.deleteTransport(2);
 
         scanner.close();
     }
